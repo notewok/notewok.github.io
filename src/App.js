@@ -1,6 +1,8 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import {getFigmaObject, getColorById } from "./script";
+import Calendar from "./components/Calendar";
+import './styles/styles.css'
 
 function App() {
   const [figmaObject, setFigmaObject] = useState(null);
@@ -54,12 +56,13 @@ function App() {
   console.log(style)
 
   return (
-    <div className="App">
-      <header className="App-header" style={{background: style.color1}} >
-        <p style={{color: style.color2}}>Wheee</p>
+      <div id='App'>
+        <header className="App-header" style={{background: style.color1}} >
+          <p style={{color: style.color2}}>Wheee</p>
 
-      </header>
-    </div>
+        </header>
+          <Calendar/>
+      </div>
   );
 }
 
