@@ -15,17 +15,19 @@ const Video = ({index}) => {
         video.play();
     }
 
+    const spinSpeed = 4/24*(25-index);
+
     return (
         <>
             <div className='day' onClick={playVideo}>{index}</div>
             {isVisible &&
                 <div className='backdrop'>
 
-                    <div id='Matti' className='mattiteppo'>
+                    <div id='Matti' className='mattiteppo' style={{animationDuration: `${spinSpeed}s`}}>
                         <img src={Matti}/>
                     </div>
 
-                    <div id='Teppo' className='mattiteppo'>
+                    <div id='Teppo' className='mattiteppo' style={{animationDuration: `${spinSpeed}s`}}>
                         <img src={Teppo}/>
                     </div>
 
