@@ -6,14 +6,14 @@ function App() {
   const [figmaObject, setFigmaObject] = useState(null);
   const [colorIds, setColorIds] = useState(null);
   const [colors, setColors] = useState([]);
-  const [style, setStyle] = useState({color1:"rgb(235, 87, 87)",color2:"rgb(62, 204, 110)"});
+  const [style, setStyle] = useState({color1:"",color2:""});
 
   useEffect( () => {
     getFigmaObject()
         .then( resp => setFigmaObject(resp.meta) )
-  }, [])
+  },[])
 
-  useEffect(  () => {
+  useEffect( () => {
     if(!!figmaObject) {
       let nodeIds = figmaObject.styles.map(color => color["node_id"]);
       setColorIds(nodeIds)
@@ -22,41 +22,42 @@ function App() {
 
   useEffect(() => {
     const mapColors = () => {
-        colorIds.map(nodeId => {
-              getColorById(nodeId)
-                  .then( resp => setColors(
-                          [...colors,
-                            ...resp.nodes[nodeId].document.fills]
-                      )
-                  )
-            }
+      colorIds.map(nodeId => {
+            getColorById(nodeId)
+                .then( resp => setColors(
+                        [...colors,
+                          ...resp.nodes[nodeId].document.fills]
+                    )
+                )
+          }
 
-        )
+      )
     }
     if( !!colorIds && colorIds.length > 1 ) {
       mapColors()
     }
   }, [colorIds])
 
-  if( !!colors && colors.length > 1 ) {
-    let chars =
-        colors.map( colorValues =>
-            `rgb(${colorValues.color.r*100},${colorValues.color.g*100},${colorValues.color.b*100})`
-    )
-
-    setStyle( {
-          color1: chars[0],
+  useEffect ( () => {
+    if( !!colors && colors.length > 1 ) {
+      let chars =
+          colors.map( colorValues =>
+              `rgb(${colorValues.color.r*255},${colorValues.color.g*255},${colorValues.color.b*255})`
+          )
+      setStyle( {
+        color1: chars[0],
         color2: chars[1]
+      })
     }
-    )
-  }
+  }, [colors])
 
-  console.log( style )
+  console.log(style)
 
   return (
     <div className="App">
       <header className="App-header" style={{background: style.color1}} >
-        Haloooooo
+        <p style={{color: style.color2}}>Wheee</p>
+
       </header>
     </div>
   );
