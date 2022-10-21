@@ -1,4 +1,3 @@
-import './App.css';
 import {useEffect, useState} from "react";
 import {getFigmaObject, getColorById } from "./script";
 import Calendar from "./components/Calendar";
@@ -58,8 +57,7 @@ function App() {
   return (
       <div id='App'>
         <header className="App-header" style={{background: style.color1}} >
-          <p style={{color: style.color2}}>Wheee</p>
-
+          <p style={{color: style.color2}}>Joulu kiihtyy</p>
         </header>
           <Calendar/>
       </div>
