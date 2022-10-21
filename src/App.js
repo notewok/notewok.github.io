@@ -6,7 +6,7 @@ function App() {
   const [figmaObject, setFigmaObject] = useState(null);
   const [colorIds, setColorIds] = useState(null);
   const [colors, setColors] = useState([]);
-  const [style, setStyle] = useState({color1:"",color2:""});
+  const [style, setStyle] = useState({color1:"rgb(235, 87, 87)",color2:"rgb(17, 146, 61)"});
 
   useEffect( () => {
     getFigmaObject()
