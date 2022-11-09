@@ -5,11 +5,10 @@ const Calendar = () => {
     const getCalendar = () => {
         let days = []
         for(let i = 1; i <= 24; i++)  {
-            days.push(<Video index={i}/>);
+            days.push(<Video key={i} index={i}/>);
         }
         return days;
     }
-    console.log('getCalendar', getCalendar())
 
     return (
         <div className='container'>
