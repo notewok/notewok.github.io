@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {fetchStyles, fetchColors, setRGBAValues} from '../store';
 import {generateRGBA} from '../utils/rgbaGenerator';
+import {Circles} from "react-loader-spinner";
+import {isEmpty} from "lodash";
 
 import Header from "./Header";
 import Calendar from "./Calendar";
@@ -34,10 +36,22 @@ const MainContent = () => {
   }, [colorStatus, figmaColors, dispatch] )
 
   return (
-      <div id='App'>
-        <Header className="App-header" />
-        <Calendar/>
-      </div>
+      (objectStatus === 'fulfilled' && colorStatus === 'fulfilled' && !isEmpty(figmaColors)) ?
+          <div id='App'>
+            <Header className="App-header" />
+            <Calendar/>
+          </div>
+          :
+      <Circles
+          height="80"
+          width="80"
+          color="rgb(0, 99, 57)"
+          ariaLabel="circles-loading"
+          wrapperStyle={{}}
+          wrapperClass="loader-container"
+          visible={true}
+      />
+
   )
 }
 
