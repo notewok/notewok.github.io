@@ -1,26 +1,40 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {fetchStyles} from '../store';
+import {fetchStyles, fetchColors, setRGBAValues} from '../store';
+import {generateRGBA} from '../utils/rgbaGenerator';
 
 import Header from "./Header";
 import Calendar from "./Calendar";
 
 const MainContent = () => {
-  const styles = useSelector((state) => state.figmaStyles)
+  const {
+    objectStatus,
+    colorStatus,
+    figmaObject,
+    figmaColors
+  } = useSelector((state) => state.figmaStyles)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchStyles())
   }, [dispatch]);
 
+  useEffect(() => {
+    if(objectStatus === 'fulfilled') {
+      figmaObject.map(nodeId => {
+            dispatch(fetchColors(nodeId.colorNodeId))
+      })
+    }
+  }, [objectStatus, dispatch]);
 
-  if(styles) {
-    console.log(styles)
-  }
+  useEffect( () => {
+    if( figmaColors && colorStatus === "fulfilled" )
+      dispatch(setRGBAValues(generateRGBA(figmaColors)))
+  }, [colorStatus, figmaColors, dispatch] )
 
   return (
       <div id='App'>
-        <Header className="App-header"/>
+        <Header className="App-header" />
         <Calendar/>
       </div>
   )
