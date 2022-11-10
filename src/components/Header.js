@@ -8,9 +8,11 @@ const Header = () => {
 
     return (
         <header style={{background: rgbaValues.red}}>
-          <h1 style={{color: rgbaValues.green}}>
-            Joulu kiihtyy
-          </h1>
+          <div className={"text-container"}>
+            <h1 style={{color: rgbaValues.green}}>
+              Joulu kiihtyy
+            </h1>
+          </div>
         </header>
     );
 };

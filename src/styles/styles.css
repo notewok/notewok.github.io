@@ -1,4 +1,5 @@
-body {
+body,
+body *{
     font-family: 'Germania One', sans-serif;
 }
 
@@ -7,13 +8,25 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 16px;
+    min-height: 100vh;
 }
 
 header {
-    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 130px;
+    padding: 1.5rem;
+}
+
+.text-container {
+    background: url("../images/text-bg.svg") no-repeat center center;
+    background-size: contain;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 3rem 5rem 5rem;
 }
 
 .container {
@@ -28,17 +41,19 @@ header {
     flex-wrap: wrap;
     align-content: flex-start;
     padding: 1rem;
+    max-width: 886px;
+    justify-content: space-evenly
 }
 
 .day {
-    width: 100px;
-    height: 100px;
+    width: 8rem;
+    height: 8rem;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     background-color: rgb(0, 99, 57);
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 20px;
     cursor: pointer;
 }
@@ -49,15 +64,23 @@ header {
     bottom:0;
     right:0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    padding: 1rem;
+}
+
+.button-container {
+}
 .close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
     background-color: red;
     color: white;
     border: 0;
@@ -65,24 +88,36 @@ header {
     cursor:pointer;
 }
 
-.video-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.controls {
+.controls,
+.button-container {
     display: flex;
     align-content: center;
     justify-content: center;
+    height: auto;
+    padding: 1rem;
+    background: rgb(37, 176, 117);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.button-container {
+    justify-content: right;
+    padding: 0.5rem;
 }
 
-.controls button {
+.controls button,
+.close {
     border: 0;
-    background-color: red;
-    padding: 20px;
-    color: white;
+    background-color: rgb(253, 232, 232);
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    color: rgb(0, 99, 57);
+    font-size: 1.25rem;
     margin: 5px;
     cursor: pointer;
+    z-index: 1;
+}
+
+.controls button:first-child {
+    margin-right: 1rem;
 }
 
 #Matti {
@@ -93,7 +128,7 @@ header {
 
 #Teppo {
     position: absolute;
-    top: 100px;
+    bottom: 200px;
     right: 200px;
 }
 

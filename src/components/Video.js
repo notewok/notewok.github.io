@@ -22,18 +22,21 @@ const Video = ({index}) => {
             <div className='day' onClick={playVideo}>{index}</div>
             {isVisible &&
                 <div className='backdrop'>
-
                     <div id='Matti' className='mattiteppo' style={{animationDuration: `${spinSpeed}s`}}>
-                        <img src={Matti}/>
+                        <img src={Matti} alt={"Matti"}/>
                     </div>
 
                     <div id='Teppo' className='mattiteppo' style={{animationDuration: `${spinSpeed}s`}}>
-                        <img src={Teppo}/>
+                        <img src={Teppo} alt={"Teppo"}/>
                     </div>
 
-                    <button onClick={() => setIsVisible(false)} className='close'>Sulje</button>
                     <div className='video-container'>
-                        <video width="320" height="240">
+                        <div className="button-container">
+                            <button onClick={() => setIsVisible(false)} className='close'>
+                                Sulje
+                            </button>
+                        </div>
+                        <video width="100%" height="auto">
                             <source src={vauhtiKiihtyy} type="video/mp4"/>
                         </video>
                         <div className='controls'>
