@@ -1,3 +1,7 @@
+body {
+    font-family: 'Germania One', sans-serif;
+}
+
 #App {
     height: 100%;
     display: flex;
@@ -10,8 +14,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 36px;
-    font-weight: bolder;
 }
 
 .container {
@@ -25,16 +27,18 @@ header {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    padding: 1rem;
 }
 
 .day {
     width: 100px;
     height: 100px;
     display: flex;
+    flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    background-color: green;
-    color: white;
+    background-color: rgb(0, 99, 57);
+    font-size: 2rem;
     margin: 20px;
     cursor: pointer;
 }

@@ -17,15 +17,16 @@ const MainContent = () => {
 
   useEffect(() => {
     dispatch(fetchStyles())
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     if(objectStatus === 'fulfilled') {
       figmaObject.map(nodeId => {
-            dispatch(fetchColors(nodeId.colorNodeId))
+            return dispatch(fetchColors(nodeId.colorNodeId))
       })
     }
-  }, [objectStatus, dispatch]);
+  }, [objectStatus, figmaObject, dispatch]);
 
   useEffect( () => {
     if( figmaColors && colorStatus === "fulfilled" )

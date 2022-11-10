@@ -7,8 +7,10 @@ const Header = () => {
   } = useSelector((state) => state.figmaStyles)
 
     return (
-        <header style={{background: rgbaValues.red, color: rgbaValues.green}}>
+        <header style={{background: rgbaValues.red}}>
+          <h1 style={{color: rgbaValues.green}}>
             Joulu kiihtyy
+          </h1>
         </header>
     );
 };
