@@ -18,7 +18,9 @@
   width: 100%;
   box-shadow: $jk-shadow;
   margin: 1rem;
-
+  video {
+    background: rgba(0, 99, 57, 0.32);
+  }
   button {
     @include jk-button;
     z-index: 2;

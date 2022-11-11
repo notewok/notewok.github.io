@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import vauhtiKiihtyy from '../video/matti_ja_teppo_vauhti_kiihtyy_2021.mp4'
+import kulkuset from '../video/kulkuset.mp4'
 import {useSelector} from "react-redux";
 import Snow from "./Snow";
 import matti from '../images/matti.png';
@@ -17,7 +18,7 @@ const Video = ({index}) => {
         const video = document.querySelector('video');
         setIsVideoPlaying(true);
         console.log(baseSpeed+(0.1*index))
-        video.playbackRate = baseSpeed+(0.1*index);
+        video.playbackRate = index === 24 ? 1 : baseSpeed+(0.1*index);
         video.play();
     }
 
@@ -31,7 +32,7 @@ const Video = ({index}) => {
         setIsVideoVisible(false);
     }
 
-    const animationSpeed = 4/24*(25-index);
+    const animationSpeed = index === 24 ? 4 : 4/24*(25-index);
 
     return (
         <>
@@ -62,8 +63,8 @@ const Video = ({index}) => {
                                 Sulje
                             </button>
                         </div>
-                        <video width="100%" height="auto">
-                            <source src={vauhtiKiihtyy} type="video/mp4"/>
+                        <video width="auto" height="300">
+                            <source src={index === 24 ? kulkuset : vauhtiKiihtyy} type="video/mp4"/>
                         </video>
                         <div className='controls' style={{background: rgbaValues.lightGreen}}>
                             <button onClick={playVideo} style={{background: rgbaValues.lightRed, color: rgbaValues.green}}>
