@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {fetchStyles, fetchColors, setRGBAValues} from '../store';
+import {fetchStyles, fetchColors, setRGBAValues, setLoadingStatus} from '../store';
 import {generateRGBA} from '../utils/rgbaGenerator';
 import {Circles} from "react-loader-spinner";
-import {isEmpty} from "lodash";
 
 import Header from "./Header";
 import Calendar from "./Calendar";
@@ -12,6 +11,7 @@ const MainContent = () => {
   const {
     objectStatus,
     colorStatus,
+    colorSettingStatus,
     figmaObject,
     figmaColors
   } = useSelector((state) => state.figmaStyles)
@@ -31,12 +31,14 @@ const MainContent = () => {
   }, [objectStatus, figmaObject, dispatch]);
 
   useEffect( () => {
-    if( figmaColors && colorStatus === "fulfilled" )
-      dispatch(setRGBAValues(generateRGBA(figmaColors)))
+    if( figmaColors && colorStatus === "fulfilled" )  {
+      dispatch(setRGBAValues(generateRGBA(figmaColors)));
+    }
+    dispatch(setLoadingStatus());
   }, [colorStatus, figmaColors, dispatch] )
 
   return (
-      (objectStatus === 'fulfilled' && colorStatus === 'fulfilled' && !isEmpty(figmaColors)) ?
+      (colorSettingStatus === "ready") ?
           <div id='App'>
             <Header className="App-header" />
             <Calendar/>

@@ -1,4 +1,3 @@
-import './styles/styles.css';
 import { Provider } from 'react-redux';
 import {store} from "./store/store.js";
 import MainContent from "./components/MainContent";

@@ -4,9 +4,11 @@ import {getColorById, getFigmaObject} from "../figmaAPI";
 const initialState = {
   objectStatus: null,
   colorStatus: null,
+  colorSettingStatus: null,
   figmaObject: [],
   figmaColors: [],
   rgbaValues: {},
+  counter: null,
 };
 
 export const fetchStyles = createAsyncThunk(
@@ -31,11 +33,15 @@ const figmaSlice = createSlice({
   name: "figmaStyle",
   initialState,
   reducers: {
-    setColorValues: (state, action) => {
-      state.figmaColors = action.payload
-    },
     setRGBAValues: (state, action) => {
+      state.counter++;
       state.rgbaValues = action.payload
+    },
+    setLoadingStatus: (state) => {
+      if( state.counter === state.figmaObject.length ) {
+        state.colorSettingStatus = "ready"
+        state.counter = null
+      }
     },
   },
   extraReducers: (builder) => {
@@ -53,6 +59,6 @@ const figmaSlice = createSlice({
   }
 })
 
-export const { setRGBAValues, setColorValues } = figmaSlice.actions;
+export const { setRGBAValues, setLoadingStatus } = figmaSlice.actions;
 
 export default figmaSlice.reducer;
