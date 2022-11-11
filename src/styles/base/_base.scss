@@ -3,6 +3,7 @@ body {
   background: $jk-green--light;
   & * {
     font-family: $jk-font-family;
+    box-sizing: border-box;
   }
   #App {
     height: 100%;

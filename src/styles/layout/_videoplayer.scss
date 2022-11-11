@@ -4,29 +4,30 @@
 .backdrop {
   @include flex-center-center;
   position: absolute;
-  top:0;
-  bottom:0;
-  right:0;
-  left: 0;
+  top: 0;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
 .video-container {
   @include flex-colum;
   max-width: 800px;
-  padding: 1rem;
+  width: 100%;
   box-shadow: $jk-shadow;
+  margin: 1rem;
 
   button {
     @include jk-button;
-    z-index: 1;
+    z-index: 2;
   }
   .controls,
   .button-container {
     @include flex-center-center;
     height: auto;
     padding: 1rem;
-    background: $jk-green--light;
   }
   .button-container {
     justify-content: right;

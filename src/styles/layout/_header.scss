@@ -1,15 +1,16 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
 header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 130px;
-  padding: 1.5rem;
+  @include flex-center-center;
+  box-shadow: $jk-shadow;
+  padding: 0.5rem;
   .text-container {
     background: url("../../images/text-bg.svg") no-repeat center center;
     background-size: contain;
     h1 {
       font-size: 4rem;
-      margin: 3rem 5rem 4.5rem;
+      margin: 2rem 6rem 3rem;
     }
   }
 }

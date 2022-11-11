@@ -1,27 +1,15 @@
 @import "../abstracts/variables";
+@import "../abstracts/mixins";
 
 .calendar {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  padding: 1rem;
-  max-width: 70rem;
   justify-content: space-evenly;
+  max-width: 70rem;
   .day {
-    width: 8rem;
-    height: 8rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    background-color: $jk-green;
-    font-size: 3rem;
+    @include calendarDoor;
     margin: 20px;
-    cursor: pointer;
-    box-shadow: $jk-shadow;
-    &:hover {
-      transform: scale(105%);
-    }
   }
 }

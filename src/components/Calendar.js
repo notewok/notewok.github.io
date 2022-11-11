@@ -16,7 +16,7 @@ const Calendar = () => {
     }
 
     return (
-        <div className='container' style={{background: rgbaValues.lightGreen, color: rgbaValues.lightRed}}>
+        <div className='container' style={{color: rgbaValues.lightRed}}>
             <div className='calendar'>
                 {getCalendar()}
             </div>
