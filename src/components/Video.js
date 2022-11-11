@@ -31,7 +31,7 @@ const Video = ({index}) => {
         setIsVideoVisible(false);
     }
 
-    const spinSpeed = 4/24*(25-index);
+    const animationSpeed = 4/24*(25-index);
 
     return (
         <>
@@ -44,13 +44,13 @@ const Video = ({index}) => {
                 <div className='backdrop'>
                     <div id='Matti'
                          className={`mattiteppo ${isVideoPlaying && 'spinAnimation'}`}
-                         style={{animationDuration: `${spinSpeed}s`}}>
+                         style={{animationDuration: `${animationSpeed}s`}}>
                         <img src={Matti} alt={"Matti"}/>
                     </div>
 
                     <div id='Teppo'
                          className={`mattiteppo ${isVideoPlaying && 'spinAnimation'}`}
-                         style={{animationDuration: `${spinSpeed}s`}}>
+                         style={{animationDuration: `${animationSpeed}s`}}>
                         <img src={Teppo} alt={"Teppo"}/>
                     </div>
 
@@ -75,7 +75,7 @@ const Video = ({index}) => {
                             </button>
                         </div>
                     </div>
-                    <Snow/>
+                    {isVideoPlaying && <Snow/>}
                 </div>
             }
         </>
