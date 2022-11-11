@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import vauhtiKiihtyy from '../video/matti_ja_teppo_vauhti_kiihtyy_2021.mp4'
-import Matti from '../images/Matti.png';
-import Teppo from '../images/Teppo.png';
 import {useSelector} from "react-redux";
 import Snow from "./Snow";
+import matti from '../images/matti.png';
+import teppo from '../images/teppo.png';
 
 const Video = ({index}) => {
     const {
@@ -45,13 +45,13 @@ const Video = ({index}) => {
                     <div id='Matti'
                          className={`mattiteppo ${isVideoPlaying && 'spinAnimation'}`}
                          style={{animationDuration: `${animationSpeed}s`}}>
-                        <img src={Matti} alt={"Matti"}/>
+                        <img src={matti} alt={"Matti"}/>
                     </div>
 
                     <div id='Teppo'
                          className={`mattiteppo ${isVideoPlaying && 'spinAnimation'}`}
                          style={{animationDuration: `${animationSpeed}s`}}>
-                        <img src={Teppo} alt={"Teppo"}/>
+                        <img src={teppo} alt={"Teppo"}/>
                     </div>
 
                     <div className='video-container'>

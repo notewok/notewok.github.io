@@ -42,12 +42,18 @@
   position: absolute;
   top: 100px;
   left: 200px;
+  img {
+    width: 300px
+  }
 }
 
 #Teppo {
   position: absolute;
   bottom: 200px;
   right: 200px;
+  img {
+    width: 350px;
+  }
 }
 
 .mattiteppo {
