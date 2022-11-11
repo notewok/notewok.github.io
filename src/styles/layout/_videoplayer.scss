@@ -54,6 +54,9 @@
   @include flex-center-center;
   height: 200px;
   width: 200px;
+}
+
+.spinAnimation {
   animation: spin 4s linear infinite;
 }
 

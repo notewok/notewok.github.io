@@ -3,20 +3,32 @@ import vauhtiKiihtyy from '../video/matti_ja_teppo_vauhti_kiihtyy_2021.mp4'
 import Matti from '../images/Matti.png';
 import Teppo from '../images/Teppo.png';
 import {useSelector} from "react-redux";
+import Snow from "./Snow";
 
 const Video = ({index}) => {
     const {
         rgbaValues
     } = useSelector((state) => state.figmaStyles)
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVideoVisible, setIsVideoVisible] = useState(false);
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false);
     const baseSpeed = 0.2;
 
     const playVideo = () => {
-        setIsVisible(true);
         const video = document.querySelector('video');
+        setIsVideoPlaying(true);
         console.log(baseSpeed+(0.1*index))
         video.playbackRate = baseSpeed+(0.1*index);
         video.play();
+    }
+
+    const pauseVideo = () => {
+        setIsVideoPlaying(false);
+       document.querySelector('video').pause()
+    }
+
+    const closeVideo = () => {
+        setIsVideoPlaying(false);
+        setIsVideoVisible(false);
     }
 
     const spinSpeed = 4/24*(25-index);
@@ -24,27 +36,27 @@ const Video = ({index}) => {
     return (
         <>
             <div className='day'
-                 onClick={playVideo}
+                 onClick={() => setIsVideoVisible(true)}
                  style={{background: rgbaValues.green, color: rgbaValues.lightRed}}>
                 {index}
             </div>
-            {isVisible &&
+            {isVideoVisible &&
                 <div className='backdrop'>
                     <div id='Matti'
-                         className='mattiteppo'
+                         className={`mattiteppo ${isVideoPlaying && 'spinAnimation'}`}
                          style={{animationDuration: `${spinSpeed}s`}}>
                         <img src={Matti} alt={"Matti"}/>
                     </div>
 
                     <div id='Teppo'
-                         className='mattiteppo'
+                         className={`mattiteppo ${isVideoPlaying && 'spinAnimation'}`}
                          style={{animationDuration: `${spinSpeed}s`}}>
                         <img src={Teppo} alt={"Teppo"}/>
                     </div>
 
                     <div className='video-container'>
                         <div className="button-container" style={{background: rgbaValues.lightGreen}}>
-                            <button onClick={() => setIsVisible(false)}
+                            <button onClick={closeVideo}
                                     style={{background: rgbaValues.lightRed, color: rgbaValues.green}}
                                     className='close'>
                                 Sulje
@@ -57,13 +69,13 @@ const Video = ({index}) => {
                             <button onClick={playVideo} style={{background: rgbaValues.lightRed, color: rgbaValues.green}}>
                                 Soita
                             </button>
-                            <button onClick={() => document.querySelector('video').pause()}
+                            <button onClick={pauseVideo}
                                     style={{background: rgbaValues.lightRed, color: rgbaValues.green}}>
                                 Pysäytä
                             </button>
                         </div>
                     </div>
-
+                    <Snow/>
                 </div>
             }
         </>

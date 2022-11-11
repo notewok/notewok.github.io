@@ -1,0 +1,36 @@
+.snowflake {
+  top: 0;
+  position: absolute;
+  animation: fall linear infinite, spin linear 10s infinite;
+  opacity: 0
+}
+
+@keyframes spin {
+  100% {
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes fall {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 90%;
+  }
+}
+
+.filter-blue1{
+  filter: invert(86%) sepia(94%) saturate(7497%) hue-rotate(180deg) brightness(109%) contrast(106%);
+}
+
+.filter-blue2{
+  filter: invert(82%) sepia(5%) saturate(1420%) hue-rotate(189deg) brightness(105%) contrast(106%);
+}
+
+.filter-blue3{
+  filter: invert(84%) sepia(18%) saturate(5517%) hue-rotate(186deg) brightness(102%) contrast(123%);
+}
+
