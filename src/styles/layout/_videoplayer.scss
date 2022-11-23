@@ -44,24 +44,18 @@
   position: absolute;
   top: 100px;
   left: 200px;
-  img {
-    width: 300px
-  }
+  @include mattiSize;
 }
 
 #Teppo {
   position: absolute;
   bottom: 200px;
   right: 200px;
-  img {
-    width: 350px;
-  }
+  @include teppoSize;
 }
 
 .mattiteppo {
   @include flex-center-center;
-  height: 200px;
-  width: 200px;
 }
 
 .spinAnimation {

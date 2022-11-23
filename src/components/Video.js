@@ -5,6 +5,7 @@ import {useSelector} from "react-redux";
 import Snow from "./Snow";
 import matti from '../images/matti.png';
 import teppo from '../images/teppo.png';
+import Soosoo from "./Soosoo";
 import { checkDate } from '../utils/dayUtil';
 
 const Video = ({index}) => {
@@ -13,10 +14,16 @@ const Video = ({index}) => {
     } = useSelector((state) => state.figmaStyles)
     const [isVideoVisible, setIsVideoVisible] = useState(false);
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+    const [isSoosooVisible, setIsSoosooVisible] = useState(false);
     const baseSpeed = 0.2;
 
+
     const onDayClick = (event) => {
-        setIsVideoVisible(checkDate(event.target.innerHTML));
+        if(checkDate(event.target.innerHTML)) {
+            setIsVideoVisible(true);
+        } else {
+            setIsSoosooVisible(true);
+        }
     }
 
     const playVideo = () => {
@@ -83,6 +90,7 @@ const Video = ({index}) => {
                     {isVideoPlaying && <Snow/>}
                 </div>
             }
+            {isSoosooVisible && <Soosoo setIsSoosooVisible={setIsSoosooVisible}/>}
         </>
     );
 };

@@ -36,3 +36,15 @@
     transform: $transform-scale;
   }
 }
+
+@mixin mattiSize {
+  img {
+    height: $matti-height;
+  }
+}
+
+@mixin teppoSize {
+  img {
+    height: $teppo-height;
+  }
+}

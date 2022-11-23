@@ -1,0 +1,89 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.soosoo-container {
+  position: absolute;
+  top:0;
+  bottom:0;
+  right: 0;
+  left: 0;
+}
+
+.bubble {
+  background-color: white;
+  box-shadow: $jk-shadow;
+  width: 200px;
+  border-radius: 10px;
+  color: $jk-green;
+  padding: 20px;
+  position: absolute;
+  top:0;
+  &.bottom {
+    right: -200px;
+    .triangle {
+      rotate: 90deg;
+      left: -20px;
+      bottom: 30px;
+    }
+  }
+  &.right {
+    top: 50px;
+    left: -100px;
+    .triangle {
+      bottom: -20px;
+      right: 30px;
+    }
+  }
+  .triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid white;
+  }
+}
+
+
+#Matti-piilossa {
+  position: absolute;
+  bottom: $spacing;
+  left: 10%;
+  @include mattiSize;
+}
+
+#Teppo-piilossa {
+  position: absolute;
+  bottom: 20%;
+  right: $spacing;
+  @include teppoSize;
+  img {
+    rotate: -90deg;
+  }
+}
+
+.animatePeekRight {
+  animation: peekRight 0.8s linear;
+}
+
+.animatePeekBottom {
+  animation: peekBottom 0.8s linear;
+}
+
+@keyframes peekRight{
+  0% {
+    right: -$teppo-height
+  }
+  100% {
+    right: $spacing;
+  }
+}
+
+@keyframes peekBottom {
+  0% {
+    bottom: -$matti-height
+  }
+  100% {
+    bottom: $spacing;
+  }
+}
