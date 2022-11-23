@@ -17,7 +17,6 @@ const Video = ({index}) => {
     const playVideo = () => {
         const video = document.querySelector('video');
         setIsVideoPlaying(true);
-        console.log(baseSpeed+(0.1*index))
         video.playbackRate = index === 24 ? 1 : baseSpeed+(0.1*index);
         video.play();
     }
@@ -44,13 +43,13 @@ const Video = ({index}) => {
             {isVideoVisible &&
                 <div className='backdrop'>
                     <div id='Matti'
-                         className={`mattiteppo ${isVideoPlaying && 'spinAnimation'}`}
+                         className={`mattiteppo ${isVideoPlaying && (index === 24 ? 'danceAnimation' : 'spinAnimation')}`}
                          style={{animationDuration: `${animationSpeed}s`}}>
                         <img src={matti} alt={"Matti"}/>
                     </div>
 
                     <div id='Teppo'
-                         className={`mattiteppo ${isVideoPlaying && 'spinAnimation'}`}
+                         className={`mattiteppo ${isVideoPlaying && (index === 24 ? 'danceAnimation' : 'spinAnimation')}`}
                          style={{animationDuration: `${animationSpeed}s`}}>
                         <img src={teppo} alt={"Teppo"}/>
                     </div>

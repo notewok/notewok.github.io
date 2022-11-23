@@ -68,6 +68,25 @@
   animation: spin 4s linear infinite;
 }
 
+.danceAnimation {
+  animation: dance 4s infinite;
+}
+
+@keyframes dance {
+  25% {
+    rotate: 20deg;
+  }
+  50% {
+    rotate: 0deg;
+  }
+  75% {
+    rotate: -20deg
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
 @keyframes spin {
   100% {
     transform:rotate(360deg);
