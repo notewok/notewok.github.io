@@ -1,11 +1,10 @@
-import {getMonth, getYear, isBefore, isToday} from 'date-fns';
+import {getYear, isBefore, isToday} from 'date-fns';
 
 export const checkDate = (day) => {
   const today = Date.now();
-  const thisMonth = getMonth( today )
   const thisYear = getYear( today )
 
-  const clickedDate = new Date(thisYear, thisMonth, day);
+  const clickedDate = new Date(thisYear, 12, day);
 
   if( isToday(clickedDate) ) {
     return true
