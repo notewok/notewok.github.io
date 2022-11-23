@@ -7,6 +7,7 @@ import matti from '../images/matti.png';
 import teppo from '../images/teppo.png';
 import Soosoo from "./Soosoo";
 import { checkDate } from '../utils/dayUtil';
+import facts from '../utils/facts.json';
 
 const Video = ({index}) => {
     const {
@@ -67,6 +68,10 @@ const Video = ({index}) => {
                     </div>
 
                     <div className='video-container'>
+
+                        <div className="info-text-container" style={{background: rgbaValues.lightGreen}}>
+                            <p>{facts[index]}</p>
+                        </div>
                         <div className="button-container" style={{background: rgbaValues.lightGreen}}>
                             <button onClick={closeVideo}
                                     style={{background: rgbaValues.lightRed, color: rgbaValues.green}}
@@ -87,7 +92,9 @@ const Video = ({index}) => {
                             </button>
                         </div>
                     </div>
+
                     {isVideoPlaying && <Snow/>}
+
                 </div>
             }
             {isSoosooVisible && <Soosoo setIsSoosooVisible={setIsSoosooVisible}/>}

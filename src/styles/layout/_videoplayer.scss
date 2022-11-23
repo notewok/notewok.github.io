@@ -12,14 +12,22 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+.info-text-container {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: $jk-green;
+  padding: 1rem 1.5rem;
+  box-shadow: $jk-shadow;
+}
+
 .video-container {
   @include flex-colum;
   max-width: 800px;
   width: 100%;
-  box-shadow: $jk-shadow;
   margin: 1rem;
   video {
     background: rgba(0, 99, 57, 0.32);
+    box-shadow: $jk-shadow;
   }
   button {
     @include jk-button;
