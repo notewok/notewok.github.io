@@ -5,6 +5,7 @@ import {useSelector} from "react-redux";
 import Snow from "./Snow";
 import matti from '../images/matti.png';
 import teppo from '../images/teppo.png';
+import { checkDate } from '../utils/dayUtil';
 
 const Video = ({index}) => {
     const {
@@ -14,10 +15,14 @@ const Video = ({index}) => {
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
     const baseSpeed = 0.2;
 
+    const onDayClick = (event) => {
+        setIsVideoVisible(checkDate(event.target.innerHTML));
+    }
+
     const playVideo = () => {
         const video = document.querySelector('video');
         setIsVideoPlaying(true);
-        console.log(baseSpeed+(0.1*index))
+        //console.log(baseSpeed+(0.1*index))
         video.playbackRate = index === 24 ? 1 : baseSpeed+(0.1*index);
         video.play();
     }
@@ -37,7 +42,7 @@ const Video = ({index}) => {
     return (
         <>
             <div className='day'
-                 onClick={() => setIsVideoVisible(true)}
+                 onClick={onDayClick}
                  style={{background: rgbaValues.green, color: rgbaValues.lightRed}}>
                 {index}
             </div>
