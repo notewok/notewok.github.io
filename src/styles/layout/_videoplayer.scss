@@ -13,8 +13,15 @@
 }
 
 .info-text-container {
-  margin-bottom: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 0 0 20px 20px;
+  max-width: 1000px;
+  width: 100%;
+  z-index: -1;
   font-size: 1.5rem;
+  background: $jk-green--light;
   color: $jk-green;
   padding: 1rem 1.5rem;
   box-shadow: $jk-shadow;
@@ -32,12 +39,14 @@
   button {
     @include jk-button;
     z-index: 2;
+    color: $jk-green;
   }
   .controls,
   .button-container {
     @include flex-center-center;
     height: auto;
     padding: 1rem;
+    background: $jk-green--light;
   }
   .button-container {
     justify-content: right;

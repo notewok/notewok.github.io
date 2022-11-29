@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import vauhtiKiihtyy from '../video/matti_ja_teppo_vauhti_kiihtyy_2021.mp4'
 import kulkuset from '../video/kulkuset.mp4'
-import {useSelector} from "react-redux";
 import Snow from "./Snow";
 import matti from '../images/matti.png';
 import teppo from '../images/teppo.png';
@@ -10,9 +9,6 @@ import { checkDate } from '../utils/dayUtil';
 import facts from '../utils/facts.json';
 
 const Video = ({index}) => {
-    const {
-        rgbaValues
-    } = useSelector((state) => state.figmaStyles)
     const [isVideoVisible, setIsVideoVisible] = useState(false);
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
     const [isSoosooVisible, setIsSoosooVisible] = useState(false);
@@ -49,8 +45,7 @@ const Video = ({index}) => {
     return (
         <>
             <div className='day'
-                 onClick={onDayClick}
-                 style={{background: rgbaValues.green, color: rgbaValues.lightRed}}>
+                 onClick={onDayClick}>
                 {index}
             </div>
             {isVideoVisible &&
@@ -69,12 +64,11 @@ const Video = ({index}) => {
 
                     <div className='video-container'>
 
-                        <div className="info-text-container" style={{background: rgbaValues.lightGreen}}>
+                        <div className="info-text-container">
                             <p>{facts[index]}</p>
                         </div>
-                        <div className="button-container" style={{background: rgbaValues.lightGreen}}>
+                        <div className="button-container">
                             <button onClick={closeVideo}
-                                    style={{background: rgbaValues.lightRed, color: rgbaValues.green}}
                                     className='close'>
                                 Sulje
                             </button>
@@ -82,12 +76,11 @@ const Video = ({index}) => {
                         <video width="auto" height="300">
                             <source src={index === 24 ? kulkuset : vauhtiKiihtyy} type="video/mp4"/>
                         </video>
-                        <div className='controls' style={{background: rgbaValues.lightGreen}}>
-                            <button onClick={playVideo} style={{background: rgbaValues.lightRed, color: rgbaValues.green}}>
+                        <div className='controls'>
+                            <button onClick={playVideo}>
                                 Soita
                             </button>
-                            <button onClick={pauseVideo}
-                                    style={{background: rgbaValues.lightRed, color: rgbaValues.green}}>
+                            <button onClick={pauseVideo}>
                                 Pysäytä
                             </button>
                         </div>

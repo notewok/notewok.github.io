@@ -32,6 +32,8 @@
   box-shadow: $jk-shadow;
   cursor: pointer;
   font-size: 3rem;
+  background: $jk-green;
+  color: $jk-red--light;
   &:hover {
     transform: $transform-scale;
   }

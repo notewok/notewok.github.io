@@ -1,12 +1,7 @@
 import React from 'react';
 import Video from "./Video";
-import {useSelector} from "react-redux";
 
 const Calendar = () => {
-    const {
-        rgbaValues
-    } = useSelector((state) => state.figmaStyles)
-
     const getCalendar = () => {
         let days = []
         for(let i = 1; i <= 24; i++)  {
@@ -16,7 +11,7 @@ const Calendar = () => {
     }
 
     return (
-        <div className='container' style={{color: rgbaValues.lightRed}}>
+        <div className='container'>
             <div className='calendar'>
                 {getCalendar()}
             </div>

@@ -1,13 +1,11 @@
-import { Provider } from 'react-redux';
-import {store} from "./store/store.js";
 import MainContent from "./components/MainContent";
 
-function App() {
+const App = () => {
   return (
-      <Provider store={store}>
-        <MainContent/>
-      </Provider>
+      <MainContent/>
   );
 }
+
+
 
 export default App;
