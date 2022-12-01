@@ -1,0 +1,105 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.backdrop {
+  @include flex-center-center;
+  position: absolute;
+  top: 0;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.info-text-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 0 0 20px 20px;
+  max-width: 1000px;
+  width: 100%;
+  z-index: -1;
+  font-size: 1.5rem;
+  background: $jk-green--light;
+  color: $jk-green;
+  padding: 1rem 1.5rem;
+  box-shadow: $jk-shadow;
+}
+
+.video-container {
+  @include flex-colum;
+  max-width: 800px;
+  width: 100%;
+  margin: 1rem;
+  video {
+    background: rgba(0, 99, 57, 0.32);
+    box-shadow: $jk-shadow;
+  }
+  button {
+    @include jk-button;
+    z-index: 2;
+    color: $jk-green;
+  }
+  .controls,
+  .button-container {
+    @include flex-center-center;
+    height: auto;
+    padding: 1rem;
+    background: $jk-green--light;
+  }
+  .button-container {
+    justify-content: right;
+    padding: 0.5rem;
+  }
+  .controls button:first-child {
+    margin-right: 1rem;
+  }
+}
+
+#Matti {
+  position: absolute;
+  top: 100px;
+  left: 200px;
+  @include mattiSize;
+}
+
+#Teppo {
+  position: absolute;
+  bottom: 200px;
+  right: 200px;
+  @include teppoSize;
+}
+
+.mattiteppo {
+  @include flex-center-center;
+}
+
+.spinAnimation {
+  animation: spin 4s linear infinite;
+}
+
+.danceAnimation {
+  animation: dance 4s infinite;
+}
+
+@keyframes dance {
+  25% {
+    rotate: 20deg;
+  }
+  50% {
+    rotate: 0deg;
+  }
+  75% {
+    rotate: -20deg
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform:rotate(360deg);
+  }
+}

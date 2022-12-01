@@ -1,0 +1,18 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+header {
+  @include flex-center-center;
+  box-shadow: $jk-shadow;
+  padding: 0.5rem;
+  background: $jk-red;
+  .text-container {
+    background: url("../../images/text-bg.svg") no-repeat center center;
+    background-size: contain;
+    h1 {
+      font-size: 4rem;
+      margin: 2rem 6rem 3rem;
+      color: $jk-green;
+    }
+  }
+}

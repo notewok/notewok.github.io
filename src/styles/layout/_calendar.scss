@@ -1,0 +1,15 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.calendar {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  max-width: 70rem;
+  .day {
+    @include calendarDoor;
+    margin: 20px;
+  }
+}
