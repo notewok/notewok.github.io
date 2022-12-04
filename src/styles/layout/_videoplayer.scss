@@ -27,6 +27,7 @@
   padding: 1rem 1.5rem;
   box-shadow: $jk-shadow;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .video-container {
@@ -34,9 +35,11 @@
   max-width: 800px;
   width: 100%;
   margin: 1rem;
+  max-height: 65vh;
   video {
     background: rgba(0, 99, 57, 0.32);
     box-shadow: $jk-shadow;
+    height: auto;
   }
   button {
     @include jk-button;

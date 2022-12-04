@@ -1,47 +1,66 @@
 @include mobile() {
+    header {
+        padding: 0rem;
+    }
+    .calendar .day {
+        width: 5rem;
+        height: 5rem;
+        margin: 2%;
+    }
     #Matti {
         position: absolute;
-        top: 140px;
-        left: 50px;
+        top: 120px;
+        left: 20px;
         @include mattiMobileSize;
         &-piilossa {
-        @include mattiMobileSize;
+            left: 0;
+            @include mattiMobileSize;
         }
     }
     
     #Teppo {
         position: absolute;
-        bottom: 50px;
-        right: 50px;
+        bottom: 20px;
+        right: 10px;
         @include teppoMobileSize;
         &-piilossa {
-        @include teppoMobileSize;
+            bottom: 150px;
+            right: 0;
+            @include teppoMobileSize;
         }
     }
     .bubble.right {
-        top: 20px;
-        left: -100px;
+        top: -20px;
+        left: -120px;
     }
 }
 
 @include tablet() {
+    .calendar .day {
+        width: 7rem;
+        height: 7rem;
+        margin: 2%;
+    }
     #Matti {
         position: absolute;
-        top: 140px;
-        left: 50px;
+        top: 80px;
+        left: 10px;
         @include mattiTabletSize;
         &-piilossa {
-        @include mattiTabletSize;
+            left: 0;
+            @include mattiTabletSize;
         }
     }
     
     #Teppo {
         position: absolute;
-        bottom: 50px;
-        right: 50px;
+        bottom: 0;
+        right: 0;
         @include teppoTabletSize;
         &-piilossa {
-        @include teppoTabletSize;
+            bottom: 200px;
+            right: 0;
+            @include teppoTabletSize;
         }
     }
     .bubble.right {

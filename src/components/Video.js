@@ -46,6 +46,9 @@ const Video = ({index}) => {
             </div>
             {isVideoVisible[index] &&
                 <div className='backdrop'>
+                    <div className="info-text-container">
+                        <p>{facts[index]}</p>
+                    </div>
                     <div id='Matti'
                          className={`mattiteppo ${isVideoPlaying && (index === 24 ? 'danceAnimation' : 'spinAnimation')}`}
                          style={{animationDuration: `${animationSpeed}s`}}>
@@ -59,10 +62,6 @@ const Video = ({index}) => {
                     </div>
 
                     <div className='video-container'>
-
-                        <div className="info-text-container">
-                            <p>{facts[index]}</p>
-                        </div>
                         <div className="button-container">
                             <button onClick={closeVideo}
                                     className='close'>
