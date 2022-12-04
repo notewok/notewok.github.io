@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.8f6bd16a.css",
-    "main.js": "/static/js/main.f506b15d.js",
+    "main.css": "/static/css/main.5528b645.css",
+    "main.js": "/static/js/main.3999a322.js",
     "static/js/787.3896818f.chunk.js": "/static/js/787.3896818f.chunk.js",
     "static/media/matti_ja_teppo_vauhti_kiihtyy_2021.mp4": "/static/media/matti_ja_teppo_vauhti_kiihtyy_2021.8ded537be346e63e9cad.mp4",
     "static/media/kulkuset.mp4": "/static/media/kulkuset.1a3f21e08dbf213186d4.mp4",
@@ -12,12 +12,12 @@
     "static/media/snowflake2.svg": "/static/media/snowflake2.16ac8dee877cb053e2ce483bd9fc35fd.svg",
     "static/media/snowflake1.svg": "/static/media/snowflake1.67a63a9235aaf5b7b6a43904b7fd1cea.svg",
     "static/media/snowflake3.svg": "/static/media/snowflake3.8068f21013980901a646264c19527401.svg",
-    "main.8f6bd16a.css.map": "/static/css/main.8f6bd16a.css.map",
-    "main.f506b15d.js.map": "/static/js/main.f506b15d.js.map",
+    "main.5528b645.css.map": "/static/css/main.5528b645.css.map",
+    "main.3999a322.js.map": "/static/js/main.3999a322.js.map",
     "787.3896818f.chunk.js.map": "/static/js/787.3896818f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f6bd16a.css",
-    "static/js/main.f506b15d.js"
+    "static/css/main.5528b645.css",
+    "static/js/main.3999a322.js"
   ]
 }
