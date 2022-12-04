@@ -1,5 +1,19 @@
 @import "variables";
 
+@mixin semantic--headings() {
+  h1, h2, h3, h4 {
+    color: $jk-green;
+  }
+  h1 {
+    font-size: 4rem;
+    margin: 2rem 6rem 3rem;
+    @include mobile() {
+      font-size: 2.8rem;
+      margin: 2rem 3rem 3rem;
+    }
+  }
+}
+
 @mixin flex-center-center {
   display: flex;
   align-content: center;
@@ -41,12 +55,36 @@
 
 @mixin mattiSize {
   img {
-    height: $matti-height;
+    max-height: $matti-height;
   }
 }
 
 @mixin teppoSize {
   img {
-    height: $teppo-height;
+    max-height: $teppo-height;
+  }
+}
+
+@mixin mattiMobileSize {
+  img {
+    max-height: $matti-height--mobile;
+  }
+}
+
+@mixin teppoMobileSize {
+  img {
+    max-height: $teppo-height--mobile;
+  }
+}
+
+@mixin mattiTabletSize {
+  img {
+    max-height: $matti-height--tablet;
+  }
+}
+
+@mixin teppoTabletSize {
+  img {
+    max-height: $teppo-height--tablet;
   }
 }

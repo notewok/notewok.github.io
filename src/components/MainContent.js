@@ -1,8 +1,14 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import { isEmpty } from 'lodash';
 import Header from "./Header";
 import Calendar from "./Calendar";
+import { CalendarContext } from "../context/CalendarContext";
 
 const MainContent = () => {
+  const {
+      isVideoVisible, 
+      isSoosooVisible
+  } = useContext(CalendarContext);
   const [showLoader, setShowLoader] = useState(true)
 
   useEffect(()=> {
@@ -13,13 +19,15 @@ const MainContent = () => {
   }, [])
 
   return (
-    !showLoader ? 
-    <div id='App'>
-      <Header className="App-header" />
-      <Calendar/>
-    </div>
-    :
-    <div className="loader"/>
+      !showLoader ? 
+      <div 
+        className='container' 
+        modal-open={`${!isEmpty(isVideoVisible) || !isEmpty(isSoosooVisible)}`}>
+        <Header className="App-header" />
+        <Calendar/>
+      </div>
+      :
+      <div className="loader"/>
   )
 }
 

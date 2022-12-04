@@ -11,12 +11,9 @@ const Calendar = () => {
     }
 
     return (
-        <div className='container'>
-            <div className='calendar'>
-                {getCalendar()}
-            </div>
-        </div>
-
+    <div className="calendar">
+        {getCalendar()}
+    </div>
     );
 };
 

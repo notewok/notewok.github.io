@@ -7,6 +7,7 @@
   bottom:0;
   right: 0;
   left: 0;
+  overflow-x: hidden;
 }
 
 .bubble {
@@ -49,7 +50,12 @@
   position: absolute;
   bottom: $spacing;
   left: 10%;
+  z-index: 2;
   @include mattiSize;
+  img {
+    width: auto;
+    height: 100%;
+  }
 }
 
 #Teppo-piilossa {
@@ -58,6 +64,8 @@
   right: $spacing;
   @include teppoSize;
   img {
+    width: auto;
+    height: 100%;
     rotate: -90deg;
   }
 }

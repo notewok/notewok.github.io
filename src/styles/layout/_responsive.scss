@@ -1,0 +1,50 @@
+@include mobile() {
+    #Matti {
+        position: absolute;
+        top: 140px;
+        left: 50px;
+        @include mattiMobileSize;
+        &-piilossa {
+        @include mattiMobileSize;
+        }
+    }
+    
+    #Teppo {
+        position: absolute;
+        bottom: 50px;
+        right: 50px;
+        @include teppoMobileSize;
+        &-piilossa {
+        @include teppoMobileSize;
+        }
+    }
+    .bubble.right {
+        top: 20px;
+        left: -100px;
+    }
+}
+
+@include tablet() {
+    #Matti {
+        position: absolute;
+        top: 140px;
+        left: 50px;
+        @include mattiTabletSize;
+        &-piilossa {
+        @include mattiTabletSize;
+        }
+    }
+    
+    #Teppo {
+        position: absolute;
+        bottom: 50px;
+        right: 50px;
+        @include teppoTabletSize;
+        &-piilossa {
+        @include teppoTabletSize;
+        }
+    }
+    .bubble.right {
+        top: 10px;
+    }
+}

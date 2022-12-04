@@ -1,27 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import vauhtiKiihtyy from '../video/matti_ja_teppo_vauhti_kiihtyy_2021.mp4'
 import kulkuset from '../video/kulkuset.mp4'
 import Snow from "./Snow";
 import matti from '../images/matti.png';
 import teppo from '../images/teppo.png';
 import Soosoo from "./Soosoo";
-import { checkDate } from '../utils/dayUtil';
 import facts from '../utils/facts.json';
+import { CalendarContext } from '../context/CalendarContext';
 
 const Video = ({index}) => {
-    const [isVideoVisible, setIsVideoVisible] = useState(false);
+    const {
+        isVideoVisible, 
+        setIsVideoVisible,
+        isSoosooVisible, 
+        setIsSoosooVisible,
+        onDayClick
+    } = useContext(CalendarContext);
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-    const [isSoosooVisible, setIsSoosooVisible] = useState(false);
     const baseSpeed = 0.2;
-
-
-    const onDayClick = (event) => {
-        if(checkDate(event.target.innerHTML)) {
-            setIsVideoVisible(true);
-        } else {
-            setIsSoosooVisible(true);
-        }
-    }
 
     const playVideo = () => {
         const video = document.querySelector('video');
@@ -48,7 +44,7 @@ const Video = ({index}) => {
                  onClick={onDayClick}>
                 {index}
             </div>
-            {isVideoVisible &&
+            {isVideoVisible[index] &&
                 <div className='backdrop'>
                     <div id='Matti'
                          className={`mattiteppo ${isVideoPlaying && (index === 24 ? 'danceAnimation' : 'spinAnimation')}`}
@@ -90,7 +86,7 @@ const Video = ({index}) => {
 
                 </div>
             }
-            {isSoosooVisible && <Soosoo setIsSoosooVisible={setIsSoosooVisible}/>}
+            {isSoosooVisible[index] && <Soosoo setIsSoosooVisible={setIsSoosooVisible}/>}
         </>
     );
 };

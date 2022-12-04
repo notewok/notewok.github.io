@@ -5,14 +5,14 @@ header {
   @include flex-center-center;
   box-shadow: $jk-shadow;
   padding: 0.5rem;
-  background: $jk-red;
+  background: $jk-background--header;
+  width: 100%;
   .text-container {
+    @include flex-center-center;
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 2rem;
     background: url("../../images/text-bg.svg") no-repeat center center;
     background-size: contain;
-    h1 {
-      font-size: 4rem;
-      margin: 2rem 6rem 3rem;
-      color: $jk-green;
-    }
   }
 }

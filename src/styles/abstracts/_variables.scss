@@ -2,14 +2,32 @@
 // here listed some colors that are difficult to set on a code (e.g. body-tag)
 
 $white: rgba(255, 255, 255, 1);
-$jk-green: rgba(0, 99, 57, 1);
 $jk-red: rgba(255, 95, 99, 1);
-$jk-green--light: rgba(37, 176, 117, 1);
 $jk-red--light: rgba(253, 232, 232, 1);
+$jk-red--darker: rgba(255, 95, 99, 1);
+$jk-green: rgba(0, 99, 57, 1);
+$jk-green--light: rgba(37, 176, 117, 1);
+$jk-green--darker: rgb(24, 157, 102);
 
 $jk-green--shadow-20: rgba(0, 99, 57, 0.2);
 $jk-green--shadow-50: rgba(0, 99, 57, 0.5);
 $jk-green--shadow-70: rgba(0, 99, 57, 0.7);
+
+$jk-background: linear-gradient(
+    90deg, 
+    $jk-green--darker 0%,
+    $jk-green--light 20%, 
+    $jk-green--light 60%, 
+    $jk-green--light 80%, 
+    $jk-green--darker 100%);
+
+$jk-background--header: linear-gradient(
+    90deg, 
+    $jk-red--darker 0%,
+    $jk-red 20%, 
+    $jk-red 50%, 
+    $jk-red 80%, 
+    $jk-red--darker 100%);
 
 $jk-font-family: 'Germania One', sans-serif;
 
@@ -21,3 +39,10 @@ $matti-height: 250px;
 $teppo-height: 350px;
 
 $spacing: 20px;
+
+//responsive values
+$matti-height--mobile: 150px;
+$teppo-height--mobile: 200px;
+
+$matti-height--tablet: 200px;
+$teppo-height--tablet: 300px;
